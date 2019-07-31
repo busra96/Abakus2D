@@ -6,7 +6,9 @@ using TMPro;
 public class textController : MonoBehaviour
 {
     // public TextMeshProUGUI KalanboncukSayisi, GelenBoncukSayisi, SayiBoncukSayisi;
-    public TextMeshProUGUI SayiBoncukSayisi;
+   // public TextMeshProUGUI SayiBoncukSayisi;
+
+    public TextMeshProUGUI onlarBoncukSayisi;
 
     private int gelen = 0;
     private int sayi = 0;
@@ -18,7 +20,8 @@ public class textController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SayiBoncukSayisi.text = sayi.ToString();
+      //  SayiBoncukSayisi.text = sayi.ToString();
+        onlarBoncukSayisi.text = sayi.ToString();
         collider = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -26,7 +29,8 @@ public class textController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SayiBoncukSayisi.text = sayi.ToString();
+      //  SayiBoncukSayisi.text = sayi.ToString();
+        onlarBoncukSayisi.text = sayi.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
