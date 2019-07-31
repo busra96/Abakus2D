@@ -6,6 +6,8 @@ TagManager:
   tags:
   - carpma
   - boncuk
+  - tahta
+  - delete
   layers:
   - Default
   - TransparentFX
