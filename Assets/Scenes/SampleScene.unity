@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9848dc6627f384893ba0119fbe1d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onlarBoncukSayisi: {fileID: 0}
+  BoncukSayisi: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -2614,7 +2614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c9848dc6627f384893ba0119fbe1d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onlarBoncukSayisi: {fileID: 32863994}
+  BoncukSayisi: {fileID: 32863994}
 --- !u!212 &1137396193
 SpriteRenderer:
   m_ObjectHideFlags: 0

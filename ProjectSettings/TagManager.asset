@@ -8,6 +8,8 @@ TagManager:
   - boncuk
   - tahta
   - delete
+  - FxTemporaire
+  - durdurma
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Particle
   - 
   - 
   - 
@@ -44,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Particle
+    uniqueID: 3673711277
     locked: 0

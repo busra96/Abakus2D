@@ -8,7 +8,7 @@ public class textController : MonoBehaviour
     // public TextMeshProUGUI KalanboncukSayisi, GelenBoncukSayisi, SayiBoncukSayisi;
    // public TextMeshProUGUI SayiBoncukSayisi;
 
-    public TextMeshProUGUI onlarBoncukSayisi;
+    public TextMeshProUGUI BoncukSayisi;
 
     private int gelen = 0;
     private int sayi = 0;
@@ -21,7 +21,7 @@ public class textController : MonoBehaviour
     void Start()
     {
       //  SayiBoncukSayisi.text = sayi.ToString();
-        onlarBoncukSayisi.text = sayi.ToString();
+        BoncukSayisi.text = sayi.ToString();
         collider = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -30,7 +30,7 @@ public class textController : MonoBehaviour
     void Update()
     {
       //  SayiBoncukSayisi.text = sayi.ToString();
-        onlarBoncukSayisi.text = sayi.ToString();
+        BoncukSayisi.text = sayi.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -39,7 +39,7 @@ public class textController : MonoBehaviour
         {
             sayi += 1;
 
-            Debug.Log(sayi);
+          //  Debug.Log(sayi);
         }
     }
 
@@ -49,7 +49,7 @@ public class textController : MonoBehaviour
         {
             sayi -= 1;
 
-            Debug.Log(sayi);
+           // Debug.Log(sayi);
         }
 
     }
