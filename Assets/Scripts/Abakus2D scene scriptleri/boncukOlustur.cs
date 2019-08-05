@@ -15,7 +15,6 @@ public class boncukOlustur : MonoBehaviour
         boncuksil = GetComponent<boncukprefabsayi>();
     }
     
-    
 
     public void BoncukArttir()
     {
