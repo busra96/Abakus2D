@@ -10,6 +10,8 @@ TagManager:
   - delete
   - FxTemporaire
   - durdurma
+  - refreshEt
+  - boncukYeri
   layers:
   - Default
   - TransparentFX

@@ -7,14 +7,7 @@ public class boncukOlustur : MonoBehaviour
     public GameObject boncukPrefab;
     private GameObject projectile;
 
-
-    private boncukprefabsayi boncuksil;
-
-    void Start()
-    {
-        boncuksil = GetComponent<boncukprefabsayi>();
-    }
-    
+   
 
     public void BoncukArttir()
     {
@@ -28,8 +21,6 @@ public class boncukOlustur : MonoBehaviour
     }
 
     
- 
-
     public void BoncukAzalt()
     {
         boncukprefabsayi[] Boncuklar = GetComponentsInChildren<boncukprefabsayi>();
@@ -39,6 +30,30 @@ public class boncukOlustur : MonoBehaviour
             {
                     Destroy(item.gameObject);
             }
+
+
+        }
+    }
+
+
+    public void BoncukRefresh()
+    {
+        boncukprefabsayi[] Boncuklar = GetComponentsInChildren<boncukprefabsayi>();
+        foreach (boncukprefabsayi item in Boncuklar)
+        {
+            if(Boncuklar.Length > 0)
+            {
+                if (item.refresh == true)
+                {
+                    for (int i = 0; i < Boncuklar.Length; i++)
+                    {
+                        Debug.Log(i);
+                        Destroy(item.gameObject);
+                       
+                    }
+                }
+            }
+            
 
         }
 

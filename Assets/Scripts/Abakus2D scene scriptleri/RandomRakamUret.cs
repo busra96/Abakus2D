@@ -19,7 +19,7 @@ public class RandomRakamUret : MonoBehaviour
     public TextMeshProUGUI RandomBinlerBasamagi;
 
     Animator anim;
-
+    GameObject[] boncukYerleri;
     public bool dogru = false;
     public bool random = false;
   
@@ -27,8 +27,10 @@ public class RandomRakamUret : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         StartCoroutine("RandomSayiOlustur");
+        boncukYerleri =  GameObject.FindGameObjectsWithTag("boncukYeri");
     }
 
+    
     //dogru animasyonunun calısmasını sağlayan fonksiyon
     IEnumerator DogruBildi()
     {
@@ -38,17 +40,17 @@ public class RandomRakamUret : MonoBehaviour
 
 
    //yenile butonuna basılınca ya da cocuk doğru bildikten sonra bu komut calıscak
-   public IEnumerator Refresh()
+   public void Refresh()
     {
         anim.SetTrigger("bitti1");
+        foreach(GameObject item in boncukYerleri)
+        {
+            item.GetComponent<boncukOlustur>().BoncukRefresh();
+        }
         StartCoroutine("RandomSayiOlustur");
-        yield return new WaitForSecondsRealtime(2);
+
     }
 
-    public void RefreshFunction()
-    {
-        StartCoroutine("Refresh");
-    }
 
     public void KontrolEt()
     {
