@@ -38,11 +38,17 @@ public class RandomRakamUret : MonoBehaviour
         anim.SetTrigger("bildi1");
     }
 
+    IEnumerator YanlisBildi()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        anim.SetTrigger("yanlisOldu");
+    }
 
    //yenile butonuna basılınca ya da cocuk doğru bildikten sonra bu komut calıscak
    public void Refresh()
     {
         anim.SetTrigger("bitti1");
+        anim.SetTrigger("yanlisBitti");
         foreach(GameObject item in boncukYerleri)
         {
             item.GetComponent<boncukOlustur>().BoncukRefresh();
@@ -61,10 +67,13 @@ public class RandomRakamUret : MonoBehaviour
             dogru = true;
             StartCoroutine("DogruBildi");
         }
-        else
+
+        else if (BirlerBasamagi.text != RandomBirlerBasamagi.text || OnlarBasamagi.text != RandomOnlarBasamagi.text || YuzlerBasamagi.text != RandomYuzlerBasamagi.text || BinlerBasamagi.text != RandomBinlerBasamagi.text)
         {
             dogru = false;
+            StartCoroutine("YanlisBildi");
         }
+
     }
 
     //sayımızı random ürettiğimiz yer
