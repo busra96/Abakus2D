@@ -34,46 +34,63 @@ public class RandomRakamUret : MonoBehaviour
     //dogru animasyonunun calısmasını sağlayan fonksiyon
     IEnumerator DogruBildi()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
-        anim.SetTrigger("bildi1");
+        yield return null;
+        if (dogru)
+        {
+            anim.SetBool("kazandi",true);
+        }
+        else
+        {
+            anim.SetBool("kazandi", false);
+        }
+            
     }
 
+    //yanlıs animasyonunun calısmasını sağlayan fonksiyn
     IEnumerator YanlisBildi()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
-        anim.SetTrigger("yanlisOldu");
+        yield return null;
+        if (!dogru)
+        {
+            anim.SetBool("kaybetti", true);
+        }
+        else
+        {
+            anim.SetBool("kaybetti", false);
+        }
     }
 
    //yenile butonuna basılınca ya da cocuk doğru bildikten sonra bu komut calıscak
    public void Refresh()
     {
-        anim.SetTrigger("bitti1");
-        anim.SetTrigger("yanlisBitti");
-        foreach(GameObject item in boncukYerleri)
+        foreach (GameObject item in boncukYerleri)
         {
             item.GetComponent<boncukOlustur>().BoncukRefresh();
         }
         StartCoroutine("RandomSayiOlustur");
-
     }
 
 
     public void KontrolEt()
     {
+        anim.SetBool("kaybetti", false);
+        anim.SetBool("kazandi", false);
         //Random değerlerle abakusteki textboxları kontrol ediyorum
         if (BirlerBasamagi.text == RandomBirlerBasamagi.text && OnlarBasamagi.text == RandomOnlarBasamagi.text && YuzlerBasamagi.text == RandomYuzlerBasamagi.text && BinlerBasamagi.text == RandomBinlerBasamagi.text)
         {
             //Burası doğru kısmı aferin animasyonu calısıcak
             dogru = true;
             StartCoroutine("DogruBildi");
+            anim.SetTrigger("bitti1");
         }
+
 
         else if (BirlerBasamagi.text != RandomBirlerBasamagi.text || OnlarBasamagi.text != RandomOnlarBasamagi.text || YuzlerBasamagi.text != RandomYuzlerBasamagi.text || BinlerBasamagi.text != RandomBinlerBasamagi.text)
         {
             dogru = false;
             StartCoroutine("YanlisBildi");
+            anim.SetTrigger("yanlisBitti");
         }
-
     }
 
     //sayımızı random ürettiğimiz yer
