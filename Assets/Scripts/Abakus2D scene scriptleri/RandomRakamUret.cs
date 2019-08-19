@@ -22,6 +22,7 @@ public class RandomRakamUret : MonoBehaviour
     GameObject[] boncukYerleri;
     public bool dogru = false;
     public bool random = false;
+    public int scor = 0;
   
     void Start()
     {
@@ -63,6 +64,8 @@ public class RandomRakamUret : MonoBehaviour
    //yenile butonuna basılınca ya da cocuk doğru bildikten sonra bu komut calıscak
    public void Refresh()
     {
+        anim.SetBool("kaybetti", false);
+        anim.SetBool("kazandi", false);
         foreach (GameObject item in boncukYerleri)
         {
             item.GetComponent<boncukOlustur>().BoncukRefresh();
@@ -75,6 +78,7 @@ public class RandomRakamUret : MonoBehaviour
     {
         anim.SetBool("kaybetti", false);
         anim.SetBool("kazandi", false);
+
         //Random değerlerle abakusteki textboxları kontrol ediyorum
         if (BirlerBasamagi.text == RandomBirlerBasamagi.text && OnlarBasamagi.text == RandomOnlarBasamagi.text && YuzlerBasamagi.text == RandomYuzlerBasamagi.text && BinlerBasamagi.text == RandomBinlerBasamagi.text)
         {
@@ -82,6 +86,7 @@ public class RandomRakamUret : MonoBehaviour
             dogru = true;
             StartCoroutine("DogruBildi");
             anim.SetTrigger("bitti1");
+            scor++;
         }
 
 
@@ -90,7 +95,11 @@ public class RandomRakamUret : MonoBehaviour
             dogru = false;
             StartCoroutine("YanlisBildi");
             anim.SetTrigger("yanlisBitti");
+            scor--;
         }
+        anim.SetBool("kaybetti", false);
+        anim.SetBool("kazandi", false);
+        Debug.Log(scor);
     }
 
     //sayımızı random ürettiğimiz yer
